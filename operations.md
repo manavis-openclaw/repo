@@ -1,30 +1,30 @@
 # Operations
 
 ## Service Control
-- Status:
-- Start:
-- Stop:
-- Restart:
-- Reload:
+- Status: `openclaw status` and `systemctl status openclaw-gateway`
+- Start: `openclaw gateway start`
+- Stop: `openclaw gateway stop`
+- Restart: `openclaw gateway restart`
+- Reload: manual input needed if a separate reload flow exists
 
 ## Logs and Diagnostics
-- Main logs command:
-- OpenClaw status command:
-- OpenClaw health command:
-- Security audit command:
-- Update status command:
-- Other useful diagnostics:
+- Main logs command: `openclaw logs --follow`
+- OpenClaw status command: `openclaw status`
+- OpenClaw health command: `openclaw health --json`
+- Security audit command: `openclaw security audit --deep`
+- Update status command: `openclaw update status`
+- Other useful diagnostics: `ss -ltnp`, `df -h /`, `free -h`
 
 ## Routine Tasks
 ### Update
-1.
-2.
-3.
+1. Run `openclaw update status`.
+2. Confirm backup or snapshot exists.
+3. Update using the existing pnpm-managed install path, then re-run `openclaw status` and `openclaw security audit --deep`.
 
 ### Restart after config change
-1.
-2.
-3.
+1. Validate changed config file paths under `/root/.openclaw/`.
+2. Run `openclaw gateway restart`.
+3. Verify with `openclaw status` and a live channel check.
 
 ### Incident response
 1. Confirm access path still works.

@@ -1,12 +1,12 @@
 # Rebuild Checklist
 
 ## Phase 1: Base Server
-- [ ] Provision server
+- [ ] Provision Ubuntu server
 - [ ] Apply OS updates
-- [ ] Set timezone
-- [ ] Create admin user if needed
+- [ ] Set timezone to Asia/Tokyo
+- [ ] Create admin user if needed, or explicitly decide to keep root-only admin access
 - [ ] Set up SSH keys
-- [ ] Confirm remote access
+- [ ] Confirm remote access on port 22
 - [ ] Configure firewall
 
 ## Phase 2: Network and Domain
@@ -15,21 +15,22 @@
 - [ ] Confirm public reachability if needed
 
 ## Phase 3: OpenClaw
-- [ ] Install runtime dependencies
+- [ ] Install runtime dependencies for the pnpm-managed OpenClaw setup
 - [ ] Install OpenClaw
-- [ ] Restore config files
-- [ ] Restore data files
+- [ ] Restore config files under `/root/.openclaw/`
+- [ ] Restore data files under `/root/.openclaw/`
 - [ ] Configure startup service
 - [ ] Start gateway
-- [ ] Verify status
-- [ ] Verify integrations
+- [ ] Verify `openclaw status`
+- [ ] Verify Discord integration and any companion device pairing needed
 
 ## Phase 4: Validation
-- [ ] Run OpenClaw security audit
-- [ ] Run update status check
+- [ ] Run `openclaw security audit --deep`
+- [ ] Run `openclaw update status`
 - [ ] Confirm messaging channels work
 - [ ] Confirm scheduled jobs work
 - [ ] Confirm logs are clean
+- [ ] Confirm OpenClaw is still loopback-only unless intentional external exposure is configured
 
 ## Phase 5: Backup and Handover
 - [ ] Re-enable backups
