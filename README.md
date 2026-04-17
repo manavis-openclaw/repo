@@ -1,3 +1,3 @@
 # repo
 
-Test commit from OpenClaw to verify deploy key write access.
+Repository initialized and connected for OpenClaw GitHub access.
